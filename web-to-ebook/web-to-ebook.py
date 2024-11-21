@@ -5,3 +5,6 @@ from ebooklib import epub
 def create_ebook(url, book_title):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
+
+    book = epub.EpubBook()
+    book.set_title(book_title)
