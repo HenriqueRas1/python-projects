@@ -8,3 +8,7 @@ def create_ebook(url, book_title):
 
     book = epub.EpubBook()
     book.set_title(book_title)
+
+    chapter = epub.EpubHtml(title='Chapter 1', file_name='chap_01.xhtml')
+    chapter.content = soup.prettify()
+    book.add_item(chapter)
