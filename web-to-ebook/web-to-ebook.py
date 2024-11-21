@@ -12,3 +12,6 @@ def create_ebook(url, book_title):
     chapter = epub.EpubHtml(title='Chapter 1', file_name='chap_01.xhtml')
     chapter.content = soup.prettify()
     book.add_item(chapter)
+
+    book.spine = ['nav', chapter]
+    epub.write_epub(f'{book_title}.epub', book, {})
